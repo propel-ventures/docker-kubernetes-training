@@ -1,0 +1,23 @@
+# This is an example of a deployment - a declaration of pods.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "devopsgirls-deployment"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "devopsgirls"
+  template:
+    metadata:
+      labels:
+        app: "devopsgirls"
+        dark: "true"
+    spec:
+      containers:
+        - image: "nginx:alpine"
+          name: nginx
+          ports:
+            - containerPort: 80
+ 
