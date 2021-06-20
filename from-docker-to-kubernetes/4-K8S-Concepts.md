@@ -6,7 +6,7 @@ So we just covered how Dockerizing applications gave us a couple of things:
 
  - **Isolation**. With everything that you need encapsulated inside the image/container, this means that you no longer have to worry about dependencies being missing on your destination host.
 
-![Concerns](images/3-concerns.png)
+![Concerns](/from-docker-to-kubernetes/images/3-concerns.png)
 
 ### Pods
 
@@ -14,7 +14,7 @@ And here comes the most difficult part of our workshop: *defining pods.*
 
 **Pods** can be a single container, or a group of containers that are deployed on a host. Within a pod, all containers can talk to each other directly.
 
-![Kubes](images/7-pods.png)
+![Kubes](/from-docker-to-kubernetes/images/7-pods.png)
 
 ### Kubernetes
 
@@ -22,11 +22,11 @@ Now, the mechanism by which things are packaged isn't the same as the mechanism 
 
 Deploying things using Kubernetes basically means that you're giving Kubernetes instructions on where to get your app, and how you'll get it online. Kubernetes handles the rest.
 
-![Kubes](images/4-basic-kubes.png)
+![Kubes](/from-docker-to-kubernetes/images/4-basic-kubes.png)
 
 *Kubernetes* is an open-source orchestration system for automating container deployment, scaling, and management. At its heart, it uses a *primary/replica architecture* - where the *primary* is the main controlling unit of the cluster, and the *replicas* are the units where the containers are deployed.
 
-![Kubes](images/5-primary-kubelet.png)
+![Kubes](/from-docker-to-kubernetes/images/5-primary-kubelet.png)
 
 In the above example, the *primary* unit contains multiple services.
 
@@ -39,7 +39,7 @@ We also have the replica, which is where our containers - effectively, *pods* go
  - The replicas run **kubelets** - which start and stop containers as directed by the control plane.
  - The replicas also run a **kube-proxy** - which directs traffic to our pods.
 
-![Kubes](images/6-replica-proxy.png)
+![Kubes](/from-docker-to-kubernetes/images/6-replica-proxy.png)
 
 ### Kubernetes and Networking
 Now that we've covered some more basics, let's scratch the surface of Kubernetes and networking using pods as an example.
@@ -50,7 +50,7 @@ We previously explained *"Within a pod, all containers can talk to each other di
 
 Pods cannot talk to the containers in another pod directly. If say, a container (*Container A.1*) which is in Pod A wants to talk to *Container B.1* in Pod B directly, it cannot do so - *Container A.1* can only talk to *Container B.1* if *Container B.1* is exposed by *Pod B*.
 
-![Kubes](images/8-pod-networking.png)
+![Kubes](/from-docker-to-kubernetes/images/8-pod-networking.png)
 
 In general use however, companies generally like to use *one container per pod*. So we're going to use the terms *Pod* and *Container* interchangeably.
 

@@ -2,7 +2,7 @@
 
 In this section, we'll be talking about what it means to do a `docker run` and a `docker pull`:
 
-![Docker run-pull](/images/9-pull-run.png)
+![Docker run-pull](/from-docker-to-kubernetes/images/9-pull-run.png)
 
 
 ## Running Docker

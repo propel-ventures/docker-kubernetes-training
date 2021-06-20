@@ -6,13 +6,13 @@ In the past, we used to deploy applications against operating systems installed 
 
 Over time, we started having [Hypervisors](https://en.wikipedia.org/wiki/Hypervisor) - software that would allow you to emulate hardware, and install *another* operating system on top of it. Conceptually, it all stacks up like this:
 
-![Virtualization](/images/1-vms.png)
+![Virtualization](/from-docker-to-kubernetes/images/1-vms.png)
 
 You would install the Hypervisor, and then "*fake*" hardware that you can install an operating system in.
 
 During the last couple of years, people have started using Docker. Compared to Virtual Machines, it all stacks up like this:
 
-![Containerization](/images/2-containers.png)
+![Containerization](/from-docker-to-kubernetes/images/2-containers.png)
 
 The operating system ( or to be more correct, the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) ) began to be reused, and all you had to do was pack up *just what you need* - the libraries, or anything "uncommon" that doesn't exist in the kernel by default.
 
@@ -22,13 +22,13 @@ Dockerizing applications gave us a couple of things:
 
  - **Isolation**. With everything that you need encapsulated inside the image/container, this means that you no longer have to worry about dependencies being missing on your destination host.
 
-![Concerns](/images/3-concerns.png)
+![Concerns](/from-docker-to-kubernetes/images/3-concerns.png)
 
 ### Docker basics
 
 The Docker ecosystem has three primary parts to it - the **Client**, the **Host**, and the **Registry**.
 
-![Ecosystem](/images/4-docker.png)
+![Ecosystem](/from-docker-to-kubernetes/images/4-docker.png)
 
 The **Client** is the primary way of interacting with the Docker host. In very much the same way that client applications talk to an API, the Docker command line interacts with the Docker server.
 
@@ -36,7 +36,7 @@ The **Docker Host** is the service that runs the API and the daemon that manages
 
 The **Registry** is where your images are stored. We'll talk about all of these in more detail later, but for now, all you need to know is they roughly wire up like this:
 
-![Ecosystem](/images/5-docker2.png)
+![Ecosystem](/from-docker-to-kubernetes/images/5-docker2.png)
 
 Don't worry about absorbing this all - we'll slowly unpack how everything wires together.
 
