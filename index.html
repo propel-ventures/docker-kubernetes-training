@@ -6,25 +6,13 @@
     <style type="text/css">
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
 
-      body { font-family: 'Ubuntu Mono'; }
+      body { 
+        font-family: 'Ubuntu Mono'; 
+      }
       h1, h2, h3 {
         font-family: 'Ubuntu Mono';
         font-weight: normal;
       }
-      textarea {
-        background-image: url('https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/propel.jpg');
-      }    
-      textarea:before {
-          content: "";
-          display: block;
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          top: 0;
-          z-index: -1;
-          background-color: rgba(255, 255, 255, 0.6);
-      }        
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
   </head>
@@ -32,6 +20,7 @@
     <textarea id="source">
 
 class: center, top
+background-image: url(https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/propel.jpg)
 
 # Docker+Kubernetes Training
 
