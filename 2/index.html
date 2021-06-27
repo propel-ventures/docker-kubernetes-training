@@ -133,6 +133,8 @@ background-size: contain
 
 ---
 
+### 2.11 Docker CLI First Steps
+
 - killing a container
 - lots of ways to do this
 - `docker ps` to get the container id
@@ -143,13 +145,19 @@ background-size: contain
 
 ---
 
+### 2.12 Docker CLI First Steps
+
 - zombie containers
 - try running your initial daemon command
 - e.g. `docker run --name alpine-kevin -d alpine /bin/sh -c "while true; do ping 8.8.8.8; done"`
 - the (named) *image* for your *container* is still in the system
 - `docker ps -a` will show stopped containers
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.kill.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.rm.png)
+
+---
+
+### 2.13 Docker CLI First Steps
 
 - `docker rm alpine-kevin`
 
