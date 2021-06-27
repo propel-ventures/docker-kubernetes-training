@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docker+Kubernetes Training</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+      @import url(https://fonts.googleapis.com/css?family=Cutive+Mono:400,700,400italic);
+
+      body { 
+        font-family: 'Ubuntu Mono'; 
+        color: white;
+      }
+      h1, h2, h3 {
+        font-family: 'Ubuntu Mono';
+        font-weight: normal;
+        color: white;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Cutive Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+layout: true
+class: middle
+background-image: url(https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/propel-background.png)
+background-size: contain
+
+---
+
+# Docker+Kubernetes Training
+## Session 2
+## June 28th 2021
+
+---
+
+# Week 1
+
+1. Introduction(s)
+2. Course Schedule
+3. Course Breakdown
+4. Homework for next week
+
+???
+
+Slide notes go here
+
+---
+
+# Introductions
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/hi.gif)
+
+---
+
+# Course Schedule
+1. Local Docker Install
+2. Docker CLI First Steps
+3. Dockerfile
+4. Docker Hello World
+5. Docker Hub/ECR
+6. Docker Hygiene
+7. Docker + CI/CD
+8. Docker Network (local clustering)
+9. Docker Compose
+10. Docker vs Kubernetes
+11. Local Kubernetes Install
+12. Kubectl CLI First Steps
+13. Kubernetes Dashboard
+14. Deployment YAML
+15. Kubernetes Hello World
+16. Kubernetes Workloads
+17. Kubernetes Hello Cluster
+18. Kubernetes Maintenance
+19. MYOB's Kubernetes Cluster Solution - Jupiter
+
+[NOTE]: Weekly sessions won't line up - this won't be a 19 week course (hopefully 6-8 weeks)
+
+---
+
+### 1. Local Docker Install
+
+- Install docker: https://docs.docker.com/engine/install/
+- Verify its running: `docker version`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker-version-sm.png)
+
+---
+
+### 2. Docker CLI First Steps
+
+- `docker run hello-world`
+- `docker pull alpine`
+- listing your images
+- running an interactive shell
+- sustaining an image in the background 
+- listing your running containers
+- running a command on a background image
+- `docker info`
+- killing a container
+- stopping your engine (homework)
+
+???
+
+g docker ~/work/hist/*|sed -e 's/^.*txt:  [0-9][0-9][0-9]//'|egrep -v '(hist)'|sort -u
+
+---
+
+### 3. Dockerfile
+
+- its a file, called Dockerfile. no extension
+- dockerfile commands
+- FROM and layering
+
+---
+
+### 4. Docker Hello World
+
+- webapp on docker (dotnet, no local)
+- specifying a port
+- finding the ip address
+
+---
+
+### 5. Docker Hub/ECR
+
+- create an account on docker hub
+- push
+- tag
+
+---
+
+### 6. Docker Hygiene
+
+- pruning
+- rm
+
+---
+
+### 7. Docker + CI/CD
+
+- pipelines
+- docker-on-docker
+
+---
+
+### 8. Docker Network (local clustering)
+
+- nginx reverse proxy + webapp + api
+
+---
+
+### 9. Docker Compose
+
+---
+
+### 10. Docker vs Kubernetes
+
+---
+
+### 11. Local Kubernetes Install
+
+---
+
+### 12. Kubectl CLI First Steps
+
+---
+
+### 13. Kubernetes Dashboard
+
+---
+
+### 14. Deployment YAML
+
+---
+
+### 15. Kubernetes Hello World
+
+---
+
+### 16. Kubernetes Workloads
+
+---
+
+### 17. Kubernetes Hello Cluster
+
+---
+
+### 18. Kubernetes Maintenance
+
+---
+
+### 19. MYOB's Kubernetes Cluster Solution - Jupiter
+
+---
+
+# 'Homework' for Session 2
+
+- get docker engine installed on your local machine
+- respond to the post-session-1 homework post
+- post a screenshot of your `docker version`
+- help out anyone who needs it
+- see you then!
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
