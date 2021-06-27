@@ -35,7 +35,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.1 Docker CLI First Steps
 
 - `docker ps`
 
@@ -43,7 +43,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.2 Docker CLI First Steps
 
 - `docker run hello-world`
 
@@ -51,7 +51,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.3 Docker CLI First Steps
 
 - `docker pull alpine`
 
@@ -59,7 +59,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.4 Docker CLI First Steps
 
 - listing your images
 - `docker images`
@@ -68,7 +68,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.5 Docker CLI First Steps
 
 - running an interactive shell
 - in your local terminal, run `whoami`
@@ -96,7 +96,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.7 Docker CLI First Steps
 
 - listing your running containers
 - `docker ps`
@@ -105,7 +105,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.8 Docker CLI First Steps
 
 - connecting to background image
 - `docker exec -it alpine-kevin /bin/sh`
@@ -117,7 +117,7 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.9 Docker CLI First Steps
 
 - running a command on a background image
 - `docker exec -it alpine-kevin /bin/sh -c "ps -ef"`
@@ -129,19 +129,17 @@ background-size: contain
 
 ---
 
-### 2. Docker CLI First Steps
-
 - `docker info`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.info.png)
 
 ---
 
-### 2. Docker CLI First Steps
+### 2.11 Docker CLI First Steps
 
 - killing a container
 - lots of ways to do this
-- `docker ps` to get get the container id
+- `docker ps` to get the container id
 - `docker kill {CONTAINER ID}
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.kill.png)
@@ -149,8 +147,6 @@ background-size: contain
 - `docker ps` should no longer return that container id
 
 ---
-
-### 2. Docker CLI First Steps
 
 - zombie containers
 - try running your initial daemon command
