@@ -47,35 +47,63 @@ background-size: contain
 
 - `docker run hello-world`
 
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.hw.png)
+
 ---
 
 ### 2. Docker CLI First Steps
 
 - `docker pull alpine`
 
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pa.png)
+
 ---
 
 ### 2. Docker CLI First Steps
 
 - listing your images
+- `docker images`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.images.png)
 
 ---
 
 ### 2. Docker CLI First Steps
 
 - running an interactive shell
+- in your local terminal, run `whoami`
+- now run `docker run -it --rm alpine`
+- then run `whoami` again
+- play around - e.g. `df -h`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.png)
+
+- type `exit` to leave the container
+- type `docker ps`
+- the container should have been deleted, due to the `--rm` arg to `docker run`
+- `-it` === interactive
 
 ---
 
 ### 2. Docker CLI First Steps
 
 - sustaining an image in the background 
+- `docker run --name alpine-kevin -d alpine /bin/sh -c "while true; do ping 8.8.8.8; done"`
+- check that your daemon container is running via `docker ps`
+- check its logs via `docker logs {CONTAINER ID}`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.d.png)
+
+- if you make a mistake, `docker rm` will come in handy
 
 ---
 
 ### 2. Docker CLI First Steps
 
 - listing your running containers
+- `docker ps`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.ps.png)
 
 ---
 
