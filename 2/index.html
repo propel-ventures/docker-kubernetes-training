@@ -107,7 +107,25 @@ background-size: contain
 
 ### 2. Docker CLI First Steps
 
+- connecting to background image
+- `docker exec -it alpine-kevin /bin/sh`
+- at the new prompt' run `ps -ef`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.exec.png)
+
+- `exit` to return to your dev machine
+
+---
+
+### 2. Docker CLI First Steps
+
 - running a command on a background image
+- `docker exec -it alpine-kevin /bin/sh -c "ps -ef"`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.exec.c.png)
+
+- no need for `exit` to return to your dev machine
+- `-c` === run a command
 
 ---
 
@@ -115,176 +133,48 @@ background-size: contain
 
 - `docker info`
 
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.info.png)
+
 ---
 
 ### 2. Docker CLI First Steps
 
 - killing a container
+- lots of ways to do this
+- `docker ps` to get get the container id
+- `docker kill {CONTAINER ID}
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.kill.png)
+
+- `docker ps` should no longer return that container id
 
 ---
 
 ### 2. Docker CLI First Steps
 
-- stopping your engine (homework)
+- zombie containers
+- try running your initial daemon command
+- e.g. `docker run --name alpine-kevin -d alpine /bin/sh -c "while true; do ping 8.8.8.8; done"`
+- the (named) *image* for your *container* is still in the system
+- `docker ps -a` will show stopped containers
 
-???
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.kill.png)
 
-Slide notes go here
+- `docker rm alpine-kevin`
 
----
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.rm.a.png)
 
-# Introductions
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/hi.gif)
-
----
-
-# Course Schedule
-1. Local Docker Install
-2. Docker CLI First Steps
-3. Dockerfile
-4. Docker Hello World
-5. Docker Hub/ECR
-6. Docker Hygiene
-7. Docker + CI/CD
-8. Docker Network (local clustering)
-9. Docker Compose
-10. Docker vs Kubernetes
-11. Local Kubernetes Install
-12. Kubectl CLI First Steps
-13. Kubernetes Dashboard
-14. Deployment YAML
-15. Kubernetes Hello World
-16. Kubernetes Workloads
-17. Kubernetes Hello Cluster
-18. Kubernetes Maintenance
-19. MYOB's Kubernetes Cluster Solution - Jupiter
-
-[NOTE]: Weekly sessions won't line up - this won't be a 19 week course (hopefully 6-8 weeks)
-
----
-
-### 1. Local Docker Install
-
-- Install docker: https://docs.docker.com/engine/install/
-- Verify its running: `docker version`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker-version-sm.png)
-
----
-
-### 2. Docker CLI First Steps
-
-- `docker run hello-world`
-- `docker pull alpine`
-- listing your images
-- running an interactive shell
-- sustaining an image in the background 
-- listing your running containers
-- running a command on a background image
-- `docker info`
-- killing a container
-- stopping your engine (homework)
-
-???
-
-g docker ~/work/hist/*|sed -e 's/^.*txt:  [0-9][0-9][0-9]//'|egrep -v '(hist)'|sort -u
-
----
-
-### 3. Dockerfile
-
-- its a file, called Dockerfile. no extension
-- dockerfile commands
-- FROM and layering
-
----
-
-### 4. Docker Hello World
-
-- webapp on docker (dotnet, no local)
-- specifying a port
-- finding the ip address
-
----
-
-### 5. Docker Hub/ECR
-
-- create an account on docker hub
-- push
-- tag
-
----
-
-### 6. Docker Hygiene
-
-- pruning
-- rm
-
----
-
-### 7. Docker + CI/CD
-
-- pipelines
-- docker-on-docker
-
----
-
-### 8. Docker Network (local clustering)
-
-- nginx reverse proxy + webapp + api
-
----
-
-### 9. Docker Compose
-
----
-
-### 10. Docker vs Kubernetes
-
----
-
-### 11. Local Kubernetes Install
-
----
-
-### 12. Kubectl CLI First Steps
-
----
-
-### 13. Kubernetes Dashboard
-
----
-
-### 14. Deployment YAML
-
----
-
-### 15. Kubernetes Hello World
-
----
-
-### 16. Kubernetes Workloads
-
----
-
-### 17. Kubernetes Hello Cluster
-
----
-
-### 18. Kubernetes Maintenance
-
----
-
-### 19. MYOB's Kubernetes Cluster Solution - Jupiter
+- `docker ps -a` should no longer return that container id
+- we will cover docker hygiene further in a later session
 
 ---
 
 # 'Homework' for Session 2
 
-- get docker engine installed on your local machine
-- respond to the post-session-1 homework post
-- post a screenshot of your `docker version`
+- stopping your engine (and starting it again)
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.dead.png)
+
 - help out anyone who needs it
 - see you then!
 
