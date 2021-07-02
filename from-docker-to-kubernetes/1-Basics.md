@@ -89,7 +89,7 @@ But wait, it seems to be stuck? Not really. Docker is just running on attached m
 docker run -d -P --name banana-smith-container nginx
 ```
 
-`-d` runs Docker in *detached mode*, and `-P` publishes all exposed ports so we can access it. `banana-smith` is what we're naming the container - feel free to change it to any name you want. We can then find out how to access the site by running:
+`-d` runs Docker in *detached mode*, and `-P` publishes all exposed ports so we can access it. `banana-smith-container` is what we're naming the container - feel free to change it to any name you want. We can then find out how to access the site by running:
 
 ```
 docker port banana-smith-container
