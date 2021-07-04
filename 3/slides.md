@@ -13,19 +13,84 @@ background-size: contain
 
 ### 3.1 Dockerfile
 
+```
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+
+MAINTAINER Jason A Turner<jason.turner@mycomplianec.ai>
+
+RUN \
+    apt-get update && apt-get install -y \
+    bash groff libgdiplus gdebi-core
+    # mkdir -p /aws && \
+    # build-essential python3 docker zip python3-setuptools python3-dev python3-pip git sed jq  && \
+    # pip3 install awscli --upgrade --user
+
+COPY ./wkhtmltox_0.12.6-0.20180618.3.dev.e6d6f54.stretch_amd64.deb /
+
+RUN gdebi --non-interactive /wkhtmltox_0.12.6-0.20180618.3.dev.e6d6f54.stretch_amd64.deb
+
+
+
+WORKDIR /app
+EXPOSE 3395
+
+COPY build/ /app/
+
+ENTRYPOINT [ "dotnet", "./CIQWatson.dll" ]
+```
+
 ---
 
-- `docker run hello-world`
+### 3.2 Dockerfile Commands
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.hw.png)
+- ADD
+- ARG
+- CMD
+- COPY
+- ENTRYPOINT
+- ENV
+- EXPOSE
+- FROM
+- HEALTHCHECK
+- LABEL
+- MAINTAINER
+- ONBUILD
+- RUN
+- SHELL
+- STOPSIGNAL
+- USER
+- VOLUME
+- WORKDIR
+
+see: 
+
+[cheatsheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+
+[reference](https://docs.docker.com/engine/reference/builder/)
 
 ---
 
-### 2.3 Docker CLI First Steps
+### 3.3 Dockerfile Commands You Actually Use
 
-- `docker pull alpine`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pa.png)
+- FROM
+  - Must be the first non-comment instruction
+- RUN
+  - Shell commands
+  - Prepping your FROM image for your app or CI
+  - as many of these as you need
+- COPY
+  - Getting your code into the image
+  - Merging from other images
+- ENV
+  - Setting/editing environment variables
+  - e.g. PATH, LD_LIBRARY_PATH, PUPPETEER_EXECUTABLE_PATH
+- **Note: Above commands are all you need for build/test images**
+- EXPOSE
+  - app port
+- WORKDIR
+  - app launch directory
+- ENTRYPOINT
+  - app launch command
 
 ---
 
