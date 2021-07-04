@@ -121,31 +121,33 @@ resources:
 
 ---
 
-### 2.5 Docker CLI First Steps
+### 3.5 Building an App
 
-- running an interactive shell
-- in your local terminal, run `whoami`
-- now run `docker run -it --rm alpine`
-- then run `whoami` again
-- play around - e.g. `df -h`
+- create a new folder on your machine
+- create a file in that folder called `Dockerfile`
+- paste in the following contents:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.png)
+```
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
 
-- type `exit` to leave the container
-- type `docker ps`
-- the container should have been deleted, due to the `--rm` arg to `docker run`
-- `-it` === interactive
+RUN mkdir /app
+
+WORKDIR /app
+
+RUN dotnet new webapi
+
+ENTRYPOINT ["dotnet run"]
+```
+
+[Dockerfile](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/3/app/Dockerfile)
 
 ---
 
-- sustaining an image in the background 
-- `docker run --name alpine-kevin -d alpine /bin/sh -c "while true; do ping 8.8.8.8; done"`
-- check that your daemon container is running via `docker ps`
-- check its logs via `docker logs {CONTAINER ID}`
+### 3.6 Building an App
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.d.png)
+- run `docker build -t session3 .`
 
-- if you make a mistake, `docker rm` will come in handy
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.build.png)
 
 ---
 
