@@ -103,7 +103,7 @@ resources:
 
 ---
 
-### 3.4 Dockerfile Tips
+### 3.5 Dockerfile Tips
 
 - Layering
   - RUN and COPY create layers
@@ -126,7 +126,7 @@ resources:
 
 ---
 
-### 3.5 Building an App
+### 3.6 Building an App
 
 - create a new folder on your machine
 - create a file in that folder called `Dockerfile`
@@ -150,7 +150,7 @@ ENTRYPOINT ["dotnet run"]
 
 ---
 
-### 3.6 Building an App
+### 3.7 Building an App
 
 - run `docker build -t session3 .`
 
@@ -158,7 +158,7 @@ ENTRYPOINT ["dotnet run"]
 
 ---
 
-### 2.7 Docker CLI First Steps
+### 3.8 Running the App
 
 - listing your running containers
 - `docker ps`
