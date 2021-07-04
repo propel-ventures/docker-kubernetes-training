@@ -8,5 +8,5 @@ RUN dotnet new webapi
 
 EXPOSE 5000 5001
 
-ENTRYPOINT ["dotnet run"]
+ENTRYPOINT ["dotnet", "run"]
 
