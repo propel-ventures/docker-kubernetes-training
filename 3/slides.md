@@ -84,7 +84,7 @@ resources:
 - ENV
   - Setting/editing environment variables
   - e.g. PATH, LD_LIBRARY_PATH, PUPPETEER_EXECUTABLE_PATH
-- **Note: Above commands are all you need for build/test images**
+- **Note: Above commands are all you need for build/test (CI) images**
 - EXPOSE
   - app port
 - WORKDIR
