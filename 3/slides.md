@@ -158,16 +158,15 @@ ENTRYPOINT ["dotnet run"]
 
 ---
 
-### 3.8 Running the App
+### 3.8 Building an App
 
-- listing your running containers
-- `docker ps`
+- run `docker images`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.run.ps.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.images.built.png)
 
 ---
 
-### 2.8 Docker CLI First Steps
+### 3.9 Running the App
 
 - connecting to background image
 - `docker exec -it alpine-kevin /bin/sh`
