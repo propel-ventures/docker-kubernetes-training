@@ -62,7 +62,7 @@ ENTRYPOINT [ "dotnet", "./CIQWatson.dll" ]
 - VOLUME
 - WORKDIR
 
-see: 
+resources: 
 
 [cheatsheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
 
@@ -94,12 +94,30 @@ see:
 
 ---
 
-### 2.4 Docker CLI First Steps
+### 3.4 Dockerfile Tips
 
-- listing your images
-- `docker images`
+- Build Context
+  - The directory you run `docker build` from
+  - It is copied over in its entirety (i.e. all subfolders) to the build daemon
+  - where possible, don't run it from your checkout folder, tmp, or drive root
+- Layering
+  - RUN and COPY create layers
+  - Try and organise your layers so that changes between image versions happen later in the `Dockerfile`
+  - Where layers never change, consider moving them into a 'base' (build) image; this will speed up your build times
+  - If your app builds are fairly stable, consider using a base checkout image  with library packages already in place
+  - e.g. base image: `git clone`, then `nuget restore` or `npm install` or `maven dependency:resolve`
+  - e.g. build image: `git pull`, then `nuget restore` or `npm install` or `maven dependency:resolve`  
+  - You can also have have multiple `FROM` commands in your `Dockerfile`
+- FROM layering
+  - your `Dockerfile` can have can multiple `FROM` commands, and copy between image refs
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.images.png)
+resources:
+
+[dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+[multistage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
+
+[docker layers explained](https://dzone.com/articles/docker-layers-explained)
 
 ---
 
