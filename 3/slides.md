@@ -100,6 +100,11 @@ resources:
   - The directory you run `docker build` from
   - It is copied over in its entirety (i.e. all subfolders) to the build daemon
   - where possible, don't run it from your checkout folder, tmp, or drive root
+
+---
+
+### 3.4 Dockerfile Tips
+
 - Layering
   - RUN and COPY create layers
   - Try and organise your layers so that changes between image versions happen later in the `Dockerfile`
