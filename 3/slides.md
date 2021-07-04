@@ -13,9 +13,6 @@ background-size: contain
 
 ### 3.1 Dockerfile
 
-```dockerfile file=./Dockerfile
-```
-
 ---
 
 - `docker run hello-world`
