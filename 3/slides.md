@@ -139,11 +139,13 @@ RUN mkdir /app
 
 WORKDIR /app
 
-RUN dotnet new webapi
+ENV ASPNETCORE_URLS=http://*:5000
 
-EXPOSE 5000 5001
+EXPOSE 5000
 
-ENTRYPOINT ["dotnet run"]
+RUN dotnet new webapi --no-https
+
+ENTRYPOINT ["dotnet", "run"]
 ```
 
 [Dockerfile](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/3/app/Dockerfile)
