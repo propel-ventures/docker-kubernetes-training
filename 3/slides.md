@@ -132,7 +132,7 @@ resources:
 - cd into the '3' subfolder, then the 'flask' subfolder
 - run `docker build -t session3:flask .`
 - run `docker run -it --rm -p 5000:5000 session3:flask`
-- navigate to http://0.0.0.0:5000/ is your browser
+- navigate to http://0.0.0.0:5000/ in your browser
 
 ---
 
@@ -206,6 +206,7 @@ ENTRYPOINT ["dotnet", "run"]
 
 # 'Homework' for Session 4
 
+- Screenshot of http://0.0.0.0:5000/ running on your machine
 - Sign up to https://hub.docker.com/
 - (optional) Get the dotnet app working
 - help out anyone who needs it
