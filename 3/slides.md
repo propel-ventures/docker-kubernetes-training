@@ -157,27 +157,14 @@ CMD ["app.py"]
 
 ### 3.8 Building an App (dotnet)
 
-- create a new folder on your machine
-- create a file in that folder called `Dockerfile`
-- paste in the following contents:
+- clone the training repo from https://github.com/propel-ventures/docker-kubernetes-training
+- cd into the '3' subfolder, then the 'dotnet' subfolder
+- run `docker build -t session3:dotnet .`
+- run `docker run -it --rm -p 5000:80 session3:dotnet`
+- navigate to http://localhost:5000/ in your browser
 
-```
-FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
-
-RUN mkdir /app
-
-WORKDIR /app
-
-ENV ASPNETCORE_URLS=http://*:5000
-
-EXPOSE 5000
-
-RUN dotnet new webapi --no-https
-
-ENTRYPOINT ["dotnet", "run"]
-```
-
-[Dockerfile](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/3/app/Dockerfile)
+[Dockerfile](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/3/dotnet/Dockerfile)
+[Tutorial](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-5.0)
 
 ---
 
@@ -185,22 +172,7 @@ ENTRYPOINT ["dotnet", "run"]
 
 - run `docker build -t session3 .`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.build.png)
-
----
-
-### 3.10 Building an App (dotnet)
-
-- run `docker images`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.images.built.png)
-
----
-
-### 3.11 Running the App (dotnet)
-
-- TBA
-
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.dotnet.png)
 
 ---
 
