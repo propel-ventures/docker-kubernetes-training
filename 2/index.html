@@ -118,10 +118,11 @@ background-size: contain
 ### 2.9 Docker CLI First Steps
 
 - running a command on a background image
-- `docker exec -it alpine-kevin /bin/sh -c "ps -ef"`
+- `docker exec alpine-kevin /bin/sh -c ps`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.exec.c.png)
 
+- no need to use `-it` interactive and tty options
 - no need for `exit` to return to your dev machine
 - `-c` === run a command
 
