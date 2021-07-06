@@ -126,7 +126,36 @@ resources:
 
 ---
 
-### 3.6 Building an App
+### 3.6 Building an App (Python Flask)
+
+- clone the training repo from https://github.com/propel-ventures/docker-kubernetes-training
+- cd into the '3' subfolder, then the 'flask' subfolder
+- run `docker build -t session3:flask .`
+- run `docker run -it --rm -p 5000:5000 session3:flask`
+- navigate to http://0.0.0.0:5000/ is your browser
+
+---
+
+### 3.7 Building an App (Python Flask)
+
+- Dockerfile
+
+```
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y python-dev build-essential curl
+RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+RUN python get-pip.py
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+---
+
+### 3.8 Building an App (dotnet)
 
 - create a new folder on your machine
 - create a file in that folder called `Dockerfile`
@@ -152,7 +181,7 @@ ENTRYPOINT ["dotnet", "run"]
 
 ---
 
-### 3.7 Building an App
+### 3.9 Building an App (dotnet)
 
 - run `docker build -t session3 .`
 
@@ -160,7 +189,7 @@ ENTRYPOINT ["dotnet", "run"]
 
 ---
 
-### 3.8 Building an App
+### 3.10 Building an App (dotnet)
 
 - run `docker images`
 
@@ -168,84 +197,22 @@ ENTRYPOINT ["dotnet", "run"]
 
 ---
 
-### 3.9 Running the App
+### 3.11 Running the App (dotnet)
 
-- connecting to background image
-- `docker exec -it alpine-kevin /bin/sh`
-- at the new prompt' run `ps -ef`
+- TBA
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.exec.png)
-
-- `exit` to return to your dev machine
 
 ---
 
-### 2.9 Docker CLI First Steps
+# 'Homework' for Session 4
 
-- running a command on a background image
-- `docker exec -it alpine-kevin /bin/sh -c "ps -ef"`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.exec.c.png)
-
-- no need for `exit` to return to your dev machine
-- `-c` === run a command
-
----
-
-- `docker info`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.info.png)
-
----
-
-### 2.11 Docker CLI First Steps
-
-- killing a container
-- lots of ways to do this
-- `docker ps` to get the container id
-- `docker kill {CONTAINER ID}`
-- `docker ps` should no longer return the container id
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.kill.png)
-
----
-
-### 2.12 Docker CLI First Steps
-
-- zombie containers
-- try running your initial daemon command
-- e.g. `docker run --name alpine-kevin -d alpine /bin/sh -c "while true; do ping 8.8.8.8; done"`
-- the (named) *image* for your *container* is still in the system
-- `docker ps -a` will show stopped containers
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.rm.png)
-
----
-
-### 2.13 Docker CLI First Steps
-
-- `docker rm alpine-kevin`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.rm.png)
-
-- `docker ps -a` should no longer return that container id
-- we will cover docker hygiene further in a later session
-
----
-
-# 'Homework' for Session 3
-
-- stopping your engine (and starting it again)
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.dead.png)
-
+- Sign up to https://hub.docker.com/
+- (optional) Get the dotnet app working
 - help out anyone who needs it
 
-# Planned for Session 3
+# Planned for Session 4
 
-- Dockerfile and building your own images
-- Building a working app via Dockerfile
-- Docker Hub/ECR (maybe)
-- Docker hygiene (maybe)
+- Docker Hub/ECR
+- Docker Hygiene
 
 - see you then!
