@@ -163,7 +163,10 @@ CMD ["app.py"]
 - run `docker run -it --rm -p 5000:80 session3:dotnet`
 - navigate to http://localhost:5000/ in your browser
 
+resources:
+
 [Dockerfile](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/3/dotnet/Dockerfile)
+
 [Tutorial](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-5.0)
 
 ---
