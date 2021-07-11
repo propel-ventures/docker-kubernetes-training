@@ -83,6 +83,7 @@ background-size: contain
 ### 4.9 Local Image Tag
 
 - run `docker images | grep session4` on your local cli
+- note the `IMAGE ID` and size is the same for both images
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.local.png)
 
