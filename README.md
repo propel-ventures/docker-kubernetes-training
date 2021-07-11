@@ -8,3 +8,6 @@ Week 2:
 
 Week 3:
 [Slides](https://propel-ventures.github.io/docker-kubernetes-training/3/#1)
+
+Week 4:
+[Slides](https://propel-ventures.github.io/docker-kubernetes-training/4/#1)
