@@ -14,10 +14,23 @@ background-size: contain
 ### 4.1 Session 3 Rehash
 
 - https://propel-ventures.github.io/docker-kubernetes-training/3/#7
+---
+
+### 4.2 Docker Registries
+
+#### There's a bunch
+
+- [Docker Hub](https://hub.docker.com/)
+- [Amazon ECR (Elastic Container Registry)](https://ghcr.io)
+- [GitHub Container Registry](https://aws.amazon.com/ecr/)
+- [Google Cloud Container Registry](https://cloud.google.com/container-registry)
+- [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.registry.jpg)
 
 ---
 
-### 4.2 Docker Hub
+### 4.3 Docker Hub
 
 - Sign up/Login to https://hub.docker.com/
 
@@ -25,7 +38,7 @@ background-size: contain
 
 ---
 
-### 4.3 Create a new Repository
+### 4.4 Create a new Repository
 
 - click the `Create Repostory` button in the top right of your Docker Hub home page
 - enter in a repository name
@@ -35,7 +48,7 @@ background-size: contain
 
 ---
 
-### 4.3 Verify your Repo
+### 4.5 Verify your Repo
 
 - note the `docker push kevinciq/session4:tagname` command - your version of this is needed later
 
@@ -43,7 +56,7 @@ background-size: contain
 
 ---
 
-### 4.4 Docker Login
+### 4.6 Docker Login
 
 - run `docker login` on your local cli
 
@@ -51,7 +64,7 @@ background-size: contain
 
 ---
 
-### 4.5 Docker Tag, Docker Push
+### 4.7 Docker Tag, Docker Push
 
 - run `docker images | grep session3` on your local cli
 - run `docker tag session3:flask kevinciq/session4:flask` on your local cli - use your own values, you can't push to mine
@@ -60,14 +73,14 @@ background-size: contain
 
 ---
 
-### 4.6 You've now authored a docker image
+### 4.8 You've now authored a docker image
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.png)
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.hub.png)
 
 ---
 
-### 4.7 Local Image Tag
+### 4.9 Local Image Tag
 
 - run `docker images | grep session4` on your local cli
 
