@@ -89,6 +89,47 @@ background-size: contain
 
 ---
 
+### 4.10 Using the image on a cloud - GCP
+
+- https://cloud.google.com/shell
+- (set up a new project, billing)
+- `docker pull kevinciq/session4:flask`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.pull.png)
+
+---
+
+### 4.11 Using the image on a cloud - GCP
+
+- `docker tag kevinciq/session4:flask gcr.io/basic-decoder-319517/kevinciq/session4:flask`
+- `docker push gcr.io/basic-decoder-319517/kevinciq/session4:flask`
+- `gcloud run deploy --image=gcr.io/basic-decoder-319517/kevinciq/session4:flask --port=5000 --region=us-central1 --allow-unauthenticated --platform=managed`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.create.png)
+
+---
+
+### 4.12 Using the image on a cloud - GCP
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.created.png)
+
+---
+
+### 4.13 Using the image on a cloud - GCP
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.shutdown.png)
+
+---
+
+### 4.13 Using an image on a cloud - ECR
+
+- `aws ecr get-login-password | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com`
+- `docker tag session4:flask XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
+- `docker push XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
+- `docker run -it --volume=/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/3/flask:/app --workdir="/app" --memory=4g --memory-swap=4g --memory-swappiness=0 --entrypoint=/bin/bash XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
+
+---
+
 # Session 5 is in Two Weeks - July 26th
 
 - I'll post a multiple choice quiz for next week
