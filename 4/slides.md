@@ -25,56 +25,11 @@ background-size: contain
 
 ---
 
-### 3.2 Dockerfile Commands
+### 4.3 Docker Login
 
-- ADD
-- ARG
-- CMD
-- COPY
-- ENTRYPOINT
-- ENV
-- EXPOSE
-- FROM
-- HEALTHCHECK
-- LABEL
-- MAINTAINER
-- ONBUILD
-- RUN
-- SHELL
-- STOPSIGNAL
-- USER
-- VOLUME
-- WORKDIR
+- run `docker login` on your local cli
 
-resources: 
-
-[cheatsheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
-
-[reference](https://docs.docker.com/engine/reference/builder/)
-
----
-
-### 3.3 Dockerfile Commands You Actually Use
-
-- FROM
-  - Must be the first non-comment instruction
-- RUN
-  - Shell commands
-  - Prepping your FROM image for your app or CI
-  - as many of these as you need
-- COPY
-  - Getting your code into the image
-  - Merging from other images
-- ENV
-  - Setting/editing environment variables
-  - e.g. PATH, LD_LIBRARY_PATH, PUPPETEER_EXECUTABLE_PATH
-- **Note: Above commands are all you need for build/test (CI) images**
-- EXPOSE
-  - app port
-- WORKDIR
-  - app launch directory
-- ENTRYPOINT
-  - app launch command
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.login.png)
 
 ---
 
