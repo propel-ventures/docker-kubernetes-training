@@ -40,7 +40,7 @@ background-size: contain
 
 ### 4.4 Create a new Repository
 
-- click the `Create Repostory` button in the top right of your Docker Hub home page
+- click the `Create Repository` button in the top right of your Docker Hub home page
 - enter in a repository name
 - default settings are fine - note this is a public repo
 
