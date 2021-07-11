@@ -25,11 +25,53 @@ background-size: contain
 
 ---
 
-### 4.3 Docker Login
+### 4.3 Create a new Repository
+
+- click the `Create Repostory` button in the top right of your Docker Hub home page
+- enter in a repository name
+- default settings are fine - note this is a public repo
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.create.png)
+
+---
+
+### 4.3 Verify your Repo
+
+- note the `docker push kevinciq/session4:tagname` command - your version of this is needed later
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.create.push.png)
+
+---
+
+### 4.4 Docker Login
 
 - run `docker login` on your local cli
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.login.png)
+
+---
+
+### 4.5 Docker Tag, Docker Push
+
+- run `docker images | grep session3` on your local cli
+- run `docker tag session3:flask kevinciq/session4:flask` on your local cli - use your own values, you can't push to mine
+- run `docker push kevinciq/session4:flask`
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushing.png)
+
+---
+
+### 4.6 You've now authored a docker image
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.hub.png)
+
+---
+
+### 4.7 Local Image Tag
+
+- run `docker images | grep session4` on your local cli
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.local.png)
 
 ---
 
