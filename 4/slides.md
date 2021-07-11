@@ -67,7 +67,7 @@ background-size: contain
 ### 4.7 Docker Tag, Docker Push
 
 - run `docker images | grep session3` on your local cli
-- run `docker tag session3:flask kevinciq/session4:flask` on your local cli - use your own values, you can't push to mine
+- run `docker tag session3:flask kevinciq/session4:flask` - use your own values, you can't push to mine
 - run `docker push kevinciq/session4:flask`
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushing.png)
 
