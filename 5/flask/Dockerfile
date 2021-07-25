@@ -1,10 +1,10 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python-dev build-essential curl
-RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-RUN python get-pip.py
-COPY . /app
+FROM python:3.8-slim-buster
+
 WORKDIR /app
-RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

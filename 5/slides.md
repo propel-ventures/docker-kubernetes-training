@@ -21,8 +21,9 @@ background-size: contain
 
 #### Session outline
 
+- Create a folder structure for your dockerfiles
 - Build an `nginx` reverse proxy docker image
-- Build a `flask` docker image to serve web
+- Build a `flask` docker image to serve web pages
 - Build a `dotnet` docker image to serve REST
 - Build a `session5` docker network
 - Run all three images within the network (create a 'local cluster')
@@ -31,25 +32,66 @@ background-size: contain
 
 ---
 
-### 5.3 Build an `nginx` reverse proxy docker image
+### 5.3 Create a folder structure for your dockerfiles
 
-- Sign up/Login to https://hub.docker.com/
+- create a `session5` folder in your machine
+- create three subfolders:
+ - `nginx`
+ - `flask`
+ - `dotnet`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.nginx.png)
-
----
-
-### 4.4 Create a new Repository
-
-- click the `Create Repository` button in the top right of your Docker Hub home page
-- enter in a repository name
-- default settings are fine - note this is a public repo
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.create.png)
+ ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.folders.png)
 
 ---
 
-### 4.5 Verify your Repo
+### 5.4 Build an `nginx` reverse proxy docker image
+
+- `cd` into the `nginx` folder in your machine
+- create a file called `nginx.conf`
+- copy in the text below:
+
+
+```
+events { }
+
+http {
+  server {
+    listen 80;
+
+    location / {
+      proxy_pass http://flask:5000/;
+    }
+
+    location /api/ {
+      proxy_pass http://dotnet:80/api/;
+    }
+  }
+}
+
+```
+
+- https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/5/nginx/nginx.conf
+
+---
+
+### 5.5 Build an `nginx` reverse proxy docker image
+
+- create a `Dockerfile`
+- copy in the text below:
+
+```
+FROM nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+```
+
+- https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/5/nginx/Dockerfile
+
+- build the image via `docker build -t session5:nginx .`
+
+---
+
+### 5.6 Build a `flask` docker image to serve web pages
 
 - note the `docker push kevinciq/session4:tagname` command - your version of this is needed later
 
