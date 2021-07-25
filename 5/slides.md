@@ -17,25 +17,25 @@ background-size: contain
 
 ---
 
-### 4.2 Docker Registries
+### 5.2 Docker Network
 
-#### There's a bunch
+#### Session outline
 
-- [Docker Hub](https://hub.docker.com/)
-- [Amazon ECR (Elastic Container Registry)](https://ghcr.io)
-- [GitHub Container Registry](https://aws.amazon.com/ecr/)
-- [Google Cloud Container Registry](https://cloud.google.com/container-registry)
-- [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.registry.jpg)
+- Build an `nginx` reverse proxy docker image
+- Build a `flask` docker image to serve web
+- Build a `dotnet` docker image to serve REST
+- Build a `session5` docker network
+- Run all three images within the network (create a 'local cluster')
+- Get the docker network address
+- Test that the reverse proxy navigates the local cluster as expected
 
 ---
 
-### 4.3 Docker Hub
+### 5.3 Build an `nginx` reverse proxy docker image
 
 - Sign up/Login to https://hub.docker.com/
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.hub.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.nginx.png)
 
 ---
 
