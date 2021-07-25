@@ -221,7 +221,7 @@ ENTRYPOINT ["dotnet", "WeatherForecast.dll"]
 
 ---
 
-### 5.15 Test that the reverse proxy navigates the local cluster as expected
+### 5.16 Test that the reverse proxy navigates the local cluster as expected
 
 - note the ingress logs in your nginx window:
 
