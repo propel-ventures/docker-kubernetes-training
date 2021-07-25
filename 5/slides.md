@@ -70,8 +70,6 @@ http {
 
 ```
 
-- https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/5/nginx/nginx.conf
-
 ---
 
 ### 5.5 Build an `nginx` reverse proxy docker image
@@ -85,94 +83,151 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 ```
 
-- https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/5/nginx/Dockerfile
-
 - build the image via `docker build -t session5:nginx .`
 
 ---
 
 ### 5.6 Build a `flask` docker image to serve web pages
 
-- note the `docker push kevinciq/session4:tagname` command - your version of this is needed later
+- `cd` into the `flask` folder in your machine
+- create a file called `requirements.txt`
+- copy in the text below:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.create.push.png)
+```
+Flask==2.0.1
 
----
+```
 
-### 4.6 Docker Login
+- create a file called `app.py`
+- copy in the text below:
 
-- run `docker login` on your local cli
+```
+from flask import Flask
+app = Flask(__name__)
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.login.png)
+@app.route('/')
+def hello_world():
+    return 'Flask Session5'
 
----
-
-### 4.7 Docker Tag, Docker Push
-
-- run `docker images | grep session3` on your local cli
-- run `docker tag session3:flask kevinciq/session4:flask` - use your own values, you can't push to mine
-- run `docker push kevinciq/session4:flask`
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushing.png)
-
----
-
-### 4.8 You've now authored a docker image
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.png)
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.hub.png)
+```
 
 ---
 
-### 4.9 Local Image Tag
+### 5.7 Build a `flask` docker image to serve web pages
 
-- run `docker images | grep session4` on your local cli
-- note the `IMAGE ID` and size is the same for both images
+- create a `Dockerfile`
+- copy in the text below:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.pushed.local.png)
+```
+FROM python:3.8-slim-buster
 
----
+WORKDIR /app
 
-### 4.10 Using the image on a cloud - GCP
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-- https://cloud.google.com/shell
-- (set up a new project, billing)
-- `docker pull kevinciq/session4:flask`
+COPY . .
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.pull.png)
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 
----
+```
 
-### 4.11 Using the image on a cloud - GCP
-
-- `docker tag kevinciq/session4:flask gcr.io/basic-decoder-319517/kevinciq/session4:flask`
-- `docker push gcr.io/basic-decoder-319517/kevinciq/session4:flask`
-- `gcloud run deploy --image=gcr.io/basic-decoder-319517/kevinciq/session4:flask --port=5000 --region=us-central1 --allow-unauthenticated --platform=managed`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.create.png)
+- build the image via `docker build -t session5:flask .`
 
 ---
 
-### 4.12 Using the image on a cloud - GCP
+### 5.8 Build a `dotnet` docker image to serve REST
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.created.png)
+- `cd` into the `dotnet` folder in your machine
+- create a `Dockerfile`
+- copy in the text below:
+
+```
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /app
+RUN dotnet new webapi -o WeatherForecast -f net5.0 --no-https
+RUN dotnet build WeatherForecast/WeatherForecast.csproj -c Release -o /out
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
+WORKDIR /app
+COPY --from=build /out ./
+ENTRYPOINT ["dotnet", "WeatherForecast.dll"]
+
+```
+
+- build the image via `docker build -t session5:dotnet .`
 
 ---
 
-### 4.13 Using the image on a cloud - GCP
+### 5.9 Build a `session5` docker network
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.gcp.shutdown.png)
+- run `docker network create session5`
+- run `docker network ls`
 
----
-
-### 4.13 Using an image on a cloud - ECR
-
-- `aws ecr get-login-password | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com`
-- `docker tag session4:flask XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
-- `docker push XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
-- `docker run -it --volume=/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/3/flask:/app --workdir="/app" --memory=4g --memory-swap=4g --memory-swappiness=0 --entrypoint=/bin/bash XXXXXXXXXXXX.dkr.ecr.ap-southeast-2.amazonaws.com/session4:flask`
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.png)
 
 ---
 
-# Session 5 is in Two Weeks - July 26th
+### 5.10 Run all three images within the network - run the REST API
 
-- I'll post a multiple choice quiz for next week
+- run `docker images | grep session5` on your local cli
+- run `docker run -it --rm -p 80 --name dotnet --network session5 session5:dotnet`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.dotnet.png)
+
+---
+
+### 5.11 Run all three images within the network - run the web server
+
+- open up a new terminal window
+- run `docker run -it --rm -p 5000 --name flask --network session5 session5:flask`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.flask.png)
+
+---
+
+### 5.12 Run all three images within the network - run the reverse proxy
+
+- open up a new terminal window
+- run `docker run -it --rm -p 80 --name nginx --network session5 session5:nginx`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.nginx.png)
+
+---
+
+### 5.13 Get the docker network address
+
+- open up a new terminal window
+- run `docker network inspect session5`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.inspect.png)
+
+---
+
+### 5.14 Test that the reverse proxy navigates the local cluster as expected
+
+- note the IP address of your `nginx` container
+- run it through your browser e.g. http://172.19.0.4/
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.http.png)
+
+---
+
+### 5.14 Test that the reverse proxy navigates the local cluster as expected
+
+- now run the REST url through your browser e.g. http://172.19.0.4/api/WeatherForecast
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.rest.png)
+
+---
+
+# Planned for Session 6
+
+- Docker Compose
+- Docker Hygiene
+- Docker Internals
+- Docker vs Kubernetes
+
+# Planned for Session 7
+
+- k8s
