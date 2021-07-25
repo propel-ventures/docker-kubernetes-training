@@ -63,7 +63,7 @@ http {
     }
 
     location /api/ {
-      proxy_pass http://dotnet:80/api/;
+      proxy_pass http://dotnet:80/;
     }
   }
 }
