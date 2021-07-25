@@ -213,11 +213,19 @@ ENTRYPOINT ["dotnet", "WeatherForecast.dll"]
 
 ---
 
-### 5.14 Test that the reverse proxy navigates the local cluster as expected
+### 5.15 Test that the reverse proxy navigates the local cluster as expected
 
 - now run the REST url through your browser e.g. http://172.19.0.4/api/WeatherForecast
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.rest.png)
+
+---
+
+### 5.15 Test that the reverse proxy navigates the local cluster as expected
+
+- note the ingress logs in your nginx window:
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.ingresses.png)
 
 ---
 
