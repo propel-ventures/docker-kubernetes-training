@@ -14,23 +14,29 @@ background-size: contain
 ### 6.1 Session 5 Recap - Docker Hygiene
 
 - First, see your disk space available e.g. `df -h`
-- Then, count the number of images on your disk e.g. `docker images | wc`
+- Then, count the number of images on your disk e.g. 
+- `docker images | wc`
 
 #### Deleting (most) Docker Artifacts
 
-- Remove all unused containers, networks, images: `docker system prune`
+- Remove all unused containers, networks, images: 
+- `docker system prune`
 
-#### Deleting (old) Docker Artifacts
+#### Deleting (running) Docker Artifacts
 
-- All running containers, and their images: `docker rm -f $(docker ps -a -q)`
+- All running containers, and their images:
+- `docker rm -f $(docker ps -a -q)`
 
 #### Deleting (single) Docker Artifacts
 
-- Deleting a specific image: `docker image rm session5a:flask` (`docker rmi` works too)
+- Deleting a specific image:
+- `docker image rm session5a:flask` 
+- (`docker rmi` works too)
 
 #### Deleting (almost all) Docker Artifacts
 
-- Any image not touched in the last 2 days: `docker image prune --all --filter until=48h`
+- Any image not touched in the last 2 days:
+- `docker image prune --all --filter until=48h`
 
 ---
 
