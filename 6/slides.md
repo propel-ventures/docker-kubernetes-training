@@ -189,7 +189,7 @@ services:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.0.png)
 
-- e.g. http://172.18.0.2:5000/
+- e.g. http://172.18.0.3:5000/
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.1.png)
 
