@@ -161,7 +161,7 @@ services:
 
 ---
 
-### 6.8 Docker Compose Up
+### 6.9 Docker Compose Up
 
 - run `docker-compose up`:
 
@@ -169,82 +169,61 @@ services:
 
 ---
 
-### 5.9 Build a `session5` docker network
+### 6.10 Check Docker Compose
 
-- run `docker network create session5`
-- run `docker network ls`
+- run `docker ps` in another terminal window:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.png)
-
----
-
-### 5.10 Run all three images within the network - run the REST API
-
-- run `docker images | grep session5` on your local cli
-- run `docker run -it --rm -p 80 --name dotnet --network session5 session5:dotnet`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.dotnet.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.ps.png)
 
 ---
 
-### 5.11 Run all three images within the network - run the web server
+### 6.11 Check the Docker Compose app
 
-- open up a new terminal window
-- run `docker run -it --rm -p 5000 --name flask --network session5 session5:flask`
+- use your browser to open up the app url - e.g.:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.flask.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.0.png)
 
----
+- e.g. http://172.18.0.2:5000/
 
-### 5.12 Run all three images within the network - run the reverse proxy
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.1.png)
 
-- open up a new terminal window
-- run `docker run -it --rm -p 80 --name nginx --network session5 session5:nginx`
+- refresh the page:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.nginx.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.2.png)
 
----
-
-### 5.13 Get the docker network address
-
-- open up a new terminal window
-- run `docker network inspect session5`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.inspect.png)
 
 ---
 
-### 5.14 Test that the reverse proxy navigates the local cluster as expected
+### 6.12 Kill the Docker Compose app
 
-- note the IP address of your `nginx` container
-- run it through your browser e.g. http://172.19.0.4/
+- hit ctrl-c in the `docker-compose` terminal session to bring it down:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.http.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.dead.png)
 
----
 
-### 5.15 Test that the reverse proxy navigates the local cluster as expected
+- confirm its dead in the browser:
 
-- now run the REST url through your browser e.g. http://172.19.0.4/api/WeatherForecast
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.rest.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.dead.def.png)
 
 ---
 
-### 5.16 Test that the reverse proxy navigates the local cluster as expected
+### 6.13 Restart the app
 
-- note the ingress logs in your nginx window:
+- run `docker-compose up` again:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.network.ingresses.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.3.png)
+
+- confirm its good in the browser:
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.app.4.png)
+
 
 ---
 
-# Planned for Session 6
+# Homework for Session 7
 
-- Docker Compose
-- Docker Hygiene
-- Docker Internals
-- Docker vs Kubernetes
+- install minikube
+- see https://minikube.sigs.k8s.io/docs/start/
 
 # Planned for Session 7
 
