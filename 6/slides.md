@@ -10,7 +10,6 @@ background-size: contain
 ## August 2nd 2021
 
 ---
-
 ### 6.1 Session 5 Recap - Docker Hygiene
 
 - First, see your disk space available e.g. `df -h`
