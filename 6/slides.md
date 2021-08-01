@@ -346,7 +346,7 @@ source: https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7c
 
 ---
 
-### 6.23 Docker Internals
+### 6.24 Docker Internals
 
 #### Capabilities
 
@@ -356,7 +356,7 @@ source: https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7c
 
 ---
 
-### 6.23 Docker Internals
+### 6.25 Docker Internals
 
 #### Breaking Out
 
