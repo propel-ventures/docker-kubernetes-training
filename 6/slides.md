@@ -55,8 +55,8 @@ background-size: contain
 
 resources:
 
-- https://www.techrepublic.com/article/simplifying-the-mystery-when-to-use-docker-docker-compose-and-kubernetes/)
-- https://github.com/dotnet/tye)
+- https://www.techrepublic.com/article/simplifying-the-mystery-when-to-use-docker-docker-compose-and-kubernetes/
+- https://github.com/dotnet/tye
 
 ---
 
