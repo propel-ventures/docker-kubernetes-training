@@ -64,9 +64,9 @@ resources:
 
 ---
 
-### 6.4 Docker Compose - Flask Image
+### 6.4 Docker Compose - Flask Image 1 of 4
 
-- Create a file called `app/py`:
+- Create a file called `app.py`:
 
 ```
 import time
@@ -94,92 +94,78 @@ def hello():
     return 'Hello World! I have been seen {} times.\n'.format(count)
 
 ```
----
-
-### 5.5 Build an `nginx` reverse proxy docker image
-
-- create a `Dockerfile`
-- copy in the text below:
-
-```
-FROM nginx
-COPY nginx.conf /etc/nginx/nginx.conf
-
-```
-
-- build the image via `docker build -t session5:nginx .`
 
 ---
 
-### 5.6 Build a `flask` docker image to serve web pages
+### 6.5 Docker Compose - Flask Image 2 of 4
 
-- `cd` into the `flask` folder in your machine
 - create a file called `requirements.txt`
 - copy in the text below:
 
 ```
-Flask==2.0.1
-
-```
-
-- create a file called `app.py`
-- copy in the text below:
-
-```
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Flask Session5'
+flask
+redis
 
 ```
 
 ---
 
-### 5.7 Build a `flask` docker image to serve web pages
+### 6.6 Docker Compose - Flask Image 3 of 4
 
 - create a `Dockerfile`
 - copy in the text below:
 
 ```
+# syntax=docker/dockerfile:1
 FROM python:3.8-slim-buster
 
 WORKDIR /app
-
-COPY requirements.txt requirements.txt
+COPY . .
 RUN pip3 install -r requirements.txt
 
-COPY . .
+EXPOSE 5000
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 
-```
 
-- build the image via `docker build -t session5:flask .`
+```
 
 ---
 
-### 5.8 Build a `dotnet` docker image to serve REST
+### 6.7 Docker Compose - Flask Image 4 of 4
 
-- `cd` into the `dotnet` folder in your machine
-- create a `Dockerfile`
+- build the image: `docker build -t session6:flask .`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.flask.1.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.flask.2.png)
+
+---
+
+### 6.8 Docker Compose File
+
+- create a file called `docker-compose.yml`
 - copy in the text below:
 
 ```
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /app
-RUN dotnet new webapi -o WeatherForecast -f net5.0 --no-https
-RUN dotnet build WeatherForecast/WeatherForecast.csproj -c Release -o /out
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
-WORKDIR /app
-COPY --from=build /out ./
-ENTRYPOINT ["dotnet", "WeatherForecast.dll"]
+---
+version: '3.3'
+services:
+  web:
+    image: "session6:flask"
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
 
 ```
 
-- build the image via `docker build -t session5:dotnet .`
+---
+
+### 6.8 Docker Compose Up
+
+- run `docker-compose up`:
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/docker.compose.up.png)
 
 ---
 

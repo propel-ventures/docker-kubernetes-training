@@ -1,24 +1,9 @@
 ---
 version: '3.3'
 services:
-  flask:
-    container_name: flask
-    image: session5:flask
+  web:
+    image: "session6:flask"
     ports:
-      - '5000:5000'
-    depends_on:
-      - postgres
-  dotnet:
-    container_name: dotnet
-    image: session5:dotnet
-    ports:
-      - '5001:80'
-    depends_on:
-      - postgres
-  postgres:
-    image: 'postgres:11.2-alpine'
-    ports:
-      - '5432:5432'
-    environment:
-      POSTGRES_PASSWORD: 'password'
-      ACCEPT_EULA: 'Y'
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
