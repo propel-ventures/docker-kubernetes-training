@@ -37,7 +37,6 @@ background-size: contain
 
 - Any image not touched in the last 2 days:
 - `docker image prune --all --filter until=48h`
-
 ---
 
 ### 6.2 Docker Compose
