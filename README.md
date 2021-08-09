@@ -17,3 +17,6 @@ Week 5:
 
 Week 6:
 [Slides](https://propel-ventures.github.io/docker-kubernetes-training/6/#1)
+
+Week 7:
+[Slides](https://propel-ventures.github.io/docker-kubernetes-training/7/#1)
