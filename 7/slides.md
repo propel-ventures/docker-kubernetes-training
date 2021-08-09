@@ -10,12 +10,14 @@ background-size: contain
 ## August 16th 2021
 
 ---
+
 ### 7.1 Minikube
 
 - Start Minikube: `minikube start`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.minikube.start.png)
 
+---
 
 ### 7.2 Minikube
 
