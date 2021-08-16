@@ -84,6 +84,10 @@ background-size: contain
 - Edit a file called `redis-leader-deployment.yaml`:
 
 ```
+@media only screen {
+  html {
+    font-size: calc(1.2611 * var(--base-font-size)); 
+  }
 # SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
 kind: Deployment
