@@ -262,9 +262,7 @@ spec:
 ---
 
 ### 7.18 Guestbook Frontend
-
 - Edit a file called `frontend-deployment.yaml`:
-
 ```
 # SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
@@ -296,7 +294,6 @@ spec:
         ports:
         - containerPort: 80
 ```
-
 ---
 
 ### 7.19 Launch Frontend
@@ -359,6 +356,9 @@ spec:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.guestbook.1.png)
 
+---
+
+### 7.24 Access the Guestbook
 
 - Open up another tab to `http://localhost:8080/`
 
@@ -366,7 +366,7 @@ spec:
 
 ---
 
-### 7.24 Refresh your dashboard
+### 7.25 Refresh your dashboard
 
 - Refresh your local dashboard page from earlier - e.g. `http://127.0.0.1:34535/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview?namespace=default`
 
@@ -374,7 +374,7 @@ spec:
 
 ---
 
-### 7.25 Use kubectl to dump your cluster info
+### 7.26 Use kubectl to dump your cluster info
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
 
