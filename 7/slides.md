@@ -128,7 +128,7 @@ spec:
 
 ---
 
-### 7.11 Redis Logs
+### 7.12 Redis Logs
 
 - Run `kubectl logs -f deployment/redis-leader`
 
@@ -136,7 +136,7 @@ spec:
 
 ---
 
-### 7.12 Redis Service
+### 7.13 Redis Service
 
 - Edit a file called `redis-leader-service.yaml`:
 
@@ -162,7 +162,7 @@ spec:
 
 ---
 
-### 7.13 Launch Redis Deployment
+### 7.14 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-leader-service.yaml`
 - Run `kubectl get service`
@@ -171,7 +171,7 @@ spec:
 
 ---
 
-### 7.14 `redis-follower-deployment.yaml`:
+### 7.15 `redis-follower-deployment.yaml`:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -205,7 +205,7 @@ spec:
 ```
 ---
 
-### 7.15 Launch Redis Deployment
+### 7.16 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-follower-deployment.yaml`
 - Run `kubectl get pods`
@@ -214,7 +214,7 @@ spec:
 
 ---
 
-### 7.16 `redis-follower-service.yaml`:
+### 7.17 `redis-follower-service.yaml`:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -248,7 +248,7 @@ spec:
 ```
 ---
 
-### 7.17 Launch Redis Replica Service
+### 7.18 Launch Redis Replica Service
 
 - Run `kubectl apply -f redis-follower-service.yaml`
 - Run `kubectl get service`
@@ -258,7 +258,7 @@ spec:
 
 ---
 
-### 7.18 `frontend-deployment.yaml`:
+### 7.19 `frontend-deployment.yaml`:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -291,7 +291,7 @@ spec:
 ```
 ---
 
-### 7.19 Launch Frontend
+### 7.20 Launch Frontend
 
 - Run `kubectl apply -f frontend-deployment.yaml`
 - Run `kubectl get pods -l app=guestbook -l tier=frontend`
@@ -300,7 +300,7 @@ spec:
 
 ---
 
-### 7.20 Guestbook Frontend Service
+### 7.21 Guestbook Frontend Service
 
 - Edit a file called `frontend-service.yaml`:
 
@@ -328,7 +328,7 @@ spec:
 
 ---
 
-### 7.21 Launch Frontend Service
+### 7.22 Launch Frontend Service
 
 - Run `kubectl apply -f frontend-service.yaml`
 - Run `kubectl get services`
@@ -337,7 +337,7 @@ spec:
 
 ---
 
-### 7.22 Port Forward
+### 7.23 Port Forward
 
 - Run `kubectl port-forward svc/frontend 8080:80`
 
@@ -345,7 +345,7 @@ spec:
 
 ---
 
-### 7.23 Access the Guestbook
+### 7.24 Access the Guestbook
 
 - Browse to `http://localhost:8080/`
 
@@ -353,7 +353,7 @@ spec:
 
 ---
 
-### 7.24 Access the Guestbook
+### 7.25 Access the Guestbook
 
 - Open up another tab to `http://localhost:8080/`
 
@@ -361,7 +361,7 @@ spec:
 
 ---
 
-### 7.25 Refresh your dashboard
+### 7.26 Refresh your dashboard
 
 - Refresh your local dashboard page from earlier - e.g. `http://127.0.0.1:34535/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview?namespace=default`
 
@@ -369,7 +369,7 @@ spec:
 
 ---
 
-### 7.26 Cluster into via `kubectl get`
+### 7.27 Cluster into via `kubectl get`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
 
