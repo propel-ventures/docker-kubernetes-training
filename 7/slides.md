@@ -215,3 +215,52 @@ spec:
 - Run `kubectl get pods`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.replicas.png)
+
+---
+
+### 7.14 Redis Replica Service
+
+- Edit a file called `redis-follower-service.yaml`:
+
+```
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-follower
+  labels:
+    app: redis
+    role: follower
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: follower
+        tier: backend
+    spec:
+      containers:
+      - name: follower
+        image: gcr.io/google_samples/gb-redis-follower:v2
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+```
+
+---
+
+### 7.15 Launch Redis Replica Service
+
+- Run `kubectl apply -f redis-follower-service.yaml`
+- Run `kubectl get service`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.replicas.service.png)
+
