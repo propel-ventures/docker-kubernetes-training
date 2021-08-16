@@ -73,9 +73,7 @@ background-size: contain
 
 ### 7.8 Ingress Addon
 
-- Run `minikube addons enable ingress`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.ingress.png)
+(scratched ingress)
 
 ---
 
@@ -314,54 +312,7 @@ spec:
 
 ---
 
-### 7.20 Guestbook Frontend
-
-- Edit a file called `frontend-deployment.yaml`:
-
-```
-# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-        app: guestbook
-        tier: frontend
-  template:
-    metadata:
-      labels:
-        app: guestbook
-        tier: frontend
-    spec:
-      containers:
-      - name: php-redis
-        image: gcr.io/google_samples/gb-frontend:v5
-        env:
-        - name: GET_HOSTS_FROM
-          value: "dns"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-        ports:
-        - containerPort: 80
-```
-
----
-
-### 7.21 Launch Frontend
-
-- Run `kubectl apply -f frontend-service.yaml`
-- Run `kubectl get services`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.frontend.service.png)
-
----
-
-### 7.22 Port Forward
+### 7.20 Port Forward
 
 - Run `kubectl port-forward svc/frontend 8080:80`
 
@@ -369,7 +320,7 @@ spec:
 
 ---
 
-### 7.23 Access the Guestbook
+### 7.21 Access the Guestbook
 
 - Browse to `http://localhost:8080/`
 
@@ -382,7 +333,7 @@ spec:
 
 ---
 
-### 7.24 Refresh your dashboard
+### 7.22 Refresh your dashboard
 
 - Refresh your local dashboard page from earlier - e.g. `http://127.0.0.1:34535/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview?namespace=default`
 
@@ -390,7 +341,7 @@ spec:
 
 ---
 
-### 7.25 Use kubectl to dump your cluster info
+### 7.23 Use kubectl to dump your cluster info
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
 
