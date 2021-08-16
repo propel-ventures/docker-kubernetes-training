@@ -395,6 +395,15 @@ spec:
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
 
 
+---
+
+# Homework for Session 7
+
+- Get the guestbook running on your local machine
+
+# Planned for Session 8
+
+- ?
 
 
 
