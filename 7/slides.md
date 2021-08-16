@@ -359,6 +359,30 @@ spec:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.frontend.service.png)
 
+---
+
+### 7.22 Port Forward
+
+- Run `kubectl port-forward svc/frontend 8080:80`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.port.forward.png)
+
+---
+
+### 7.23 Access the Guestbook
+
+- Browse to `http://localhost:8080/`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.guestbook.1.png)
+
+
+- Open up another tab to `http://localhost:8080/`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.guestbook.2.png)
+
+
+
+
 
 
 
