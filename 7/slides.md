@@ -118,7 +118,7 @@ spec:
 
 ---
 
-### 7.10 Launch Redis
+### 7.10 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-leader-deployment.yaml`
 - Run `kubectl get pods`
@@ -132,3 +132,86 @@ spec:
 - Run `kubectl logs -f deployment/redis-leader`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.logs.png)
+
+---
+
+### 7.12 Redis Service
+
+- Edit a file called `redis-leader-service.yaml`:
+
+```
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-leader
+  labels:
+    app: redis
+    role: leader
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis
+    role: leader
+    tier: backend
+```
+
+---
+
+### 7.13 Launch Redis Deployment
+
+- Run `kubectl apply -f redis-leader-service.yaml`
+- Run `kubectl get service`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.service.png)
+
+---
+
+### 7.14 Redis Replicas
+
+- Edit a file called `redis-follower-deployment.yaml`:
+
+```
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-follower
+  labels:
+    app: redis
+    role: follower
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: follower
+        tier: backend
+    spec:
+      containers:
+      - name: follower
+        image: gcr.io/google_samples/gb-redis-follower:v2
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+```
+
+---
+
+### 7.15 Launch Redis Deployment
+
+- Run `kubectl apply -f redis-follower-deployment.yaml`
+- Run `kubectl get pods`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.replicas.png)
