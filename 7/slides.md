@@ -67,11 +67,19 @@ background-size: contain
 
 - Run `minikube dashboard`
 
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.minikube.dashboard.png)
+
+---
+
+### 7.8 Web Dashboard
+
+- `minikube dashboard`should have opened up a browser window for you:
+
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.png)
 
 ---
 
-### 7.8 Multi-Tier Kubernetes Web Application (Guestbook)
+### 7.9 Multi-Tier Kubernetes Web Application (Guestbook)
 
 - Edit a file called `redis-leader-deployment.yaml`:
 
@@ -110,7 +118,7 @@ spec:
 
 ---
 
-### 7.9 Launch Redis Deployment
+### 7.10 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-leader-deployment.yaml`
 - Run `kubectl get pods`
@@ -119,7 +127,7 @@ spec:
 
 ---
 
-### 7.10 Redis Logs
+### 7.11 Redis Logs
 
 - Run `kubectl logs -f deployment/redis-leader`
 
@@ -127,7 +135,7 @@ spec:
 
 ---
 
-### 7.11 Redis Service
+### 7.12 Redis Service
 
 - Edit a file called `redis-leader-service.yaml`:
 
@@ -153,7 +161,7 @@ spec:
 
 ---
 
-### 7.12 Launch Redis Deployment
+### 7.13 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-leader-service.yaml`
 - Run `kubectl get service`
@@ -162,7 +170,7 @@ spec:
 
 ---
 
-### 7.13 Redis Replicas
+### 7.14 Redis Replicas
 
 - Edit a file called `redis-follower-deployment.yaml`:
 
@@ -201,7 +209,7 @@ spec:
 
 ---
 
-### 7.14 Launch Redis Deployment
+### 7.15 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-follower-deployment.yaml`
 - Run `kubectl get pods`
@@ -210,7 +218,7 @@ spec:
 
 ---
 
-### 7.15 Redis Replica Service
+### 7.16 Redis Replica Service
 
 - Edit a file called `redis-follower-service.yaml`:
 
@@ -249,7 +257,7 @@ spec:
 
 ---
 
-### 7.16 Launch Redis Replica Service
+### 7.17 Launch Redis Replica Service
 
 - Run `kubectl apply -f redis-follower-service.yaml`
 - Run `kubectl get service`
@@ -259,7 +267,7 @@ spec:
 
 ---
 
-### 7.17 Guestbook Frontend
+### 7.18 Guestbook Frontend
 
 - Edit a file called `frontend-deployment.yaml`:
 
@@ -297,7 +305,7 @@ spec:
 
 ---
 
-### 7.18 Launch Frontend
+### 7.19 Launch Frontend
 
 - Run `kubectl apply -f frontend-deployment.yaml`
 - Run `kubectl get pods -l app=guestbook -l tier=frontend`
@@ -306,7 +314,7 @@ spec:
 
 ---
 
-### 7.19 Guestbook Frontend Service
+### 7.20 Guestbook Frontend Service
 
 - Edit a file called `frontend-service.yaml`:
 
@@ -334,7 +342,7 @@ spec:
 
 ---
 
-### 7.20 Launch Frontend Service
+### 7.21 Launch Frontend Service
 
 - Run `kubectl apply -f frontend-service.yaml`
 - Run `kubectl get services`
@@ -343,7 +351,7 @@ spec:
 
 ---
 
-### 7.21 Port Forward
+### 7.22 Port Forward
 
 - Run `kubectl port-forward svc/frontend 8080:80`
 
@@ -351,7 +359,7 @@ spec:
 
 ---
 
-### 7.22 Access the Guestbook
+### 7.23 Access the Guestbook
 
 - Browse to `http://localhost:8080/`
 
@@ -364,7 +372,7 @@ spec:
 
 ---
 
-### 7.23 Refresh your dashboard
+### 7.24 Refresh your dashboard
 
 - Refresh your local dashboard page from earlier - e.g. `http://127.0.0.1:34535/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview?namespace=default`
 
@@ -372,10 +380,9 @@ spec:
 
 ---
 
-### 7.24 Use kubectl to dump your cluster info
+### 7.25 Use kubectl to dump your cluster info
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
-
 
 ---
 
@@ -385,14 +392,5 @@ spec:
 
 # Planned for Session 8
 
-- ?
-
-
-
-
-
-
-
-
-
+- Run our docker network local cluster under k8s 
 
