@@ -216,9 +216,7 @@ spec:
 ---
 
 ### 7.16 Redis Replica Service
-
 - Edit a file called `redis-follower-service.yaml`:
-
 ```
 # SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
@@ -251,7 +249,6 @@ spec:
         ports:
         - containerPort: 6379
 ```
-
 ---
 
 ### 7.17 Launch Redis Replica Service
