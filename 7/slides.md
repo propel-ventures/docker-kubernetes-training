@@ -374,7 +374,7 @@ spec:
 
 ---
 
-### 7.26 Use kubectl to dump your cluster info
+### 7.26 Cluster into via `kubectl get`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
 
