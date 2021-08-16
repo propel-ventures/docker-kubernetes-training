@@ -171,10 +171,8 @@ spec:
 
 ---
 
-### 7.14 Redis Replicas
-- Edit a file called `redis-follower-deployment.yaml`:
+### 7.14 `redis-follower-deployment.yaml`:
 ```
-# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -216,10 +214,8 @@ spec:
 
 ---
 
-### 7.16 Redis Replica Service
-- Edit a file called `redis-follower-service.yaml`:
+### 7.16 `redis-follower-service.yaml`:
 ```
-# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -262,10 +258,8 @@ spec:
 
 ---
 
-### 7.18 Guestbook Frontend
-- Edit a file called `frontend-deployment.yaml`:
+### 7.18 `frontend-deployment.yaml`:
 ```
-# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
 kind: Deployment
 metadata:
