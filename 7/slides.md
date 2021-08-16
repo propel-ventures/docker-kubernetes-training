@@ -83,6 +83,7 @@ background-size: contain
 
 - Using pre-baked backend and frontend images
 - Next week we'll bake our own
+- If the yaml files are cut off, originals are here: https://github.com/propel-ventures/docker-kubernetes-training/tree/main/7/guestbook
 
 ---
 ### 7.10 `redis-leader-deployment.yaml`:
