@@ -73,7 +73,7 @@ background-size: contain
 
 ### 7.8 Web Dashboard
 
-- `minikube dashboard`should have opened up a browser window for you:
+- `minikube dashboard` should have opened up a browser window for you:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.png)
 
