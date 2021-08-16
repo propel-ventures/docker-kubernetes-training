@@ -218,7 +218,7 @@ spec:
 
 ---
 
-### 7.14 Redis Replica Service
+### 7.16 Redis Replica Service
 
 - Edit a file called `redis-follower-service.yaml`:
 
@@ -257,10 +257,62 @@ spec:
 
 ---
 
-### 7.15 Launch Redis Replica Service
+### 7.17 Launch Redis Replica Service
 
 - Run `kubectl apply -f redis-follower-service.yaml`
 - Run `kubectl get service`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.replicas.service.png)
+
+
+---
+
+### 7.16 Guestbook Frontend Service
+
+- Edit a file called `frontend-deployment.yaml`:
+
+```
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+        app: guestbook
+        tier: frontend
+  template:
+    metadata:
+      labels:
+        app: guestbook
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google_samples/gb-frontend:v5
+        env:
+        - name: GET_HOSTS_FROM
+          value: "dns"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 80
+```
+
+---
+
+### 7.17 Launch Frontend
+
+- Run `kubectl apply -f frontend-deployment.yaml`
+- Run `kubectl get pods -l app=guestbook -l tier=frontend`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.frontend.png)
+
+
+
+
 
