@@ -388,6 +388,15 @@ spec:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.guestbook.png)
 
+---
+
+### 7.25 Use kubectl to dump your cluster info
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.guestbook.png)
+
+
+
+
 
 
 
