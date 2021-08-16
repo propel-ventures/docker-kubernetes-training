@@ -81,8 +81,11 @@ background-size: contain
 
 ### 7.9 Multi-Tier Kubernetes Web Application (Guestbook)
 
-- Edit a file called `redis-leader-deployment.yaml`:
+- Using pre-baked backend and frontend images
+- Next week we'll bake our own
 
+---
+### 7.10 `redis-leader-deployment.yaml`:
 ```
 # SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
@@ -115,10 +118,9 @@ spec:
         ports:
         - containerPort: 6379
 ```
-
 ---
 
-### 7.10 Launch Redis Deployment
+### 7.11 Launch Redis Deployment
 
 - Run `kubectl apply -f redis-leader-deployment.yaml`
 - Run `kubectl get pods`
