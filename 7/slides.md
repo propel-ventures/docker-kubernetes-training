@@ -380,6 +380,15 @@ spec:
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.guestbook.2.png)
 
+---
+
+### 7.24 Refresh your dashboard
+
+- Refresh your local dashboard page from earlier - e.g. `http://127.0.0.1:34535/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview?namespace=default`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.guestbook.png)
+
+
 
 
 
