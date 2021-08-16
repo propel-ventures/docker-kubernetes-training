@@ -87,7 +87,6 @@ background-size: contain
 ---
 ### 7.10 `redis-leader-deployment.yaml`:
 ```
-# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 apiVersion: apps/v1
 kind: Deployment
 metadata:
