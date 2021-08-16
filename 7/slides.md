@@ -69,3 +69,66 @@ background-size: contain
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.png)
 
+---
+
+### 7.8 Ingress Addon
+
+- Run `minikube addons enable ingress`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.ingress.png)
+
+---
+
+### 7.9 Multi-Tier Kubernetes Web Application (Guestbook)
+
+- Edit a file called `redis-leader-deployment.yaml`:
+
+```
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-leader
+  labels:
+    app: redis
+    role: leader
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: leader
+        tier: backend
+    spec:
+      containers:
+      - name: leader
+        image: "docker.io/redis:6.0.5"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+```
+
+---
+
+### 7.10 Launch Redis
+
+- Run `kubectl apply -f redis-leader-deployment.yaml`
+- Run `kubectl get pods`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.png)
+
+---
+
+### 7.11 Redis Logs
+
+- Run `kubectl logs -f deployment/redis-leader`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.redis.logs.png)
