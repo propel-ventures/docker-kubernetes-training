@@ -217,8 +217,9 @@ spec:
 
 ### 7.17 `redis-follower-service.yaml`:
 ```
-apiVersion: apps/v1
-kind: Deployment
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: v1
+kind: Service
 metadata:
   name: redis-follower
   labels:
@@ -226,26 +227,13 @@ metadata:
     role: follower
     tier: backend
 spec:
-  replicas: 2
+  ports:
+    # the port that this service should serve on
+  - port: 6379
   selector:
-    matchLabels:
-      app: redis
-  template:
-    metadata:
-      labels:
-        app: redis
-        role: follower
-        tier: backend
-    spec:
-      containers:
-      - name: follower
-        image: gcr.io/google_samples/gb-redis-follower:v2
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-        ports:
-        - containerPort: 6379
+    app: redis
+    role: follower
+    tier: backend
 ```
 ---
 
