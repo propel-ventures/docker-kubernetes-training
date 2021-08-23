@@ -1,9 +1,0 @@
----
-version: '3.3'
-services:
-  web:
-    image: "session6:flask"
-    ports:
-      - "5000:5000"
-  redis:
-    image: "redis:alpine"

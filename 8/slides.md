@@ -208,7 +208,7 @@ spec:
 
 ### 8.15 Scaling
 
-- Run `kubectl scale deployment frontend --replicas=5`
+- Run `kubectl scale deployment flask --replicas=5`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.flask.scale.png)
 

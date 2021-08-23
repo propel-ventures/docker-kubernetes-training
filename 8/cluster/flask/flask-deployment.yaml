@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask
+  name: flask8a
 spec:
   replicas: 3
   selector:
     matchLabels:
-        app: session8
-        tier: flask
+        app: session8a
+        tier: flask8a
   template:
     metadata:
       labels:
-        app: session8
-        tier: flask
+        app: session8a
+        tier: flask8a
     spec:
       containers:
-      - name: flaskapp
-        image: kevinciq/session8:flask
+      - name: flaskapp8a
+        image: kevinciq/session8a:flask
         ports:
         - containerPort: 5000

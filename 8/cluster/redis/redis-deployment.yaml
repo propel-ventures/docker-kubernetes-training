@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: redis8a
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: session8
-      tier: redis
+      app: session8a
+      tier: redis8a
   template:
     metadata:
       labels:
-        app: session8
-        tier: redis
+        app: session8a
+        tier: redis8a
     spec:
       containers:
-      - name: redis
+      - name: redis8a
         image: "redis:alpine"
         ports:
         - containerPort: 6379

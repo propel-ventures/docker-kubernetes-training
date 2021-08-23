@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask
+  name: flask8a
   labels:
-    app: session8
-    tier: flask
+    app: session8a
+    tier: flask8a
 spec:
   type: ClusterIP
   selector:
-    app: session8
-    tier: flask
+    app: session8a
+    tier: flask8a
   ports:
   - port: 5000

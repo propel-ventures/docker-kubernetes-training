@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis
+  name: redis8a
   labels:
-    app: session8
-    tier: redis
+    app: session8a
+    tier: redis8a
 spec:
   ports:
   - port: 6379
     targetPort: 6379
   selector:
-    app: session8
-    tier: redis
+    app: session8a
+    tier: redis8a
