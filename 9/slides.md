@@ -19,13 +19,13 @@ background-size: contain
 
 ---
 
-### 8.2 Rebuild+push our frontend from Session 6:
+### 9.2 Build Session9 App
 
-- `docker build -t session8:flask .`
-- `docker login`
-- `docker tag session8:flask kevinciq/session8:flask`
-- `docker push kevinciq/session8:flask`
-- sources here: https://github.com/propel-ventures/docker-kubernetes-training/tree/main/8/cluster/flask
+- `curl -LO https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/9/kustomization.yaml`
+- `curl -LO https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/9/mysql-deployment.yaml`
+- `curl -LO https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/9/wordpress-deployment.yaml`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.curl.png)
 
 ---
 
