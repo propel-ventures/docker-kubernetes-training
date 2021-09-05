@@ -56,9 +56,9 @@ background-size: contain
 
 ### 9.6 A Note on LoadBalancer
 
-- *LoadBalancer is for a cloud to create am external load balancer like ALP/NLP in AWS*
+- *LoadBalancer is for a cloud to create an external load balancer like ALP/NLP in AWS*
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.pending.png)1
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.pending.png)
 
 ---
 
@@ -80,7 +80,7 @@ background-size: contain
   - 192.168.49.2
 ```
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.png)1
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.png)
 
 ---
 
