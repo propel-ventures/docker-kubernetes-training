@@ -19,7 +19,7 @@ background-size: contain
 
 ---
 
-### 9.2 Build Session9 App
+### 9.2 Prepare Session9 App
 
 - `curl -LO https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/9/kustomization.yaml`
 - `curl -LO https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/9/mysql-deployment.yaml`
@@ -29,152 +29,83 @@ background-size: contain
 
 ---
 
-### 8.3 Create the flask deployment
+### 9.3 Boot Session9 App
 
-- edit `flask-deployment.yaml`
+- `kubectl apply -k .`
 
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: flask
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-        app: session8
-        tier: flask
-  template:
-    metadata:
-      labels:
-        app: session8
-        tier: flask
-    spec:
-      containers:
-      - name: flaskapp
-        image: session8:flask
-        ports:
-        - containerPort: 80
-
-```
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.apply.png)
 
 ---
 
-### 8.4 Apply the flask deployment
+### 9.4 Verify the Persistent Volume Claims
 
-- Run `kubectl apply -f flask-deployment.yaml`
+- `kubectl get pvc`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.flask.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.pvc.png)
 
 ---
 
-### 8.5 Create the flask service
+### 9.5 Describe the Wordpress Service
 
-- Edit `flask-service.yaml`:
+- `kubectl get service wordpress`
+- `minikube service wordpress --url`
+
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.url.png)
+---
+
+### 9.6 A Note on LoadBalancer
+
+- *LoadBalancer is for a cloud to create am external load balancer like ALP/NLP in AWS*
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.pending.png)1
+
+---
+
+### 9.7 Minikube IP
+
+- `minikube ip`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.minikube.ip.png)
+
+---
+
+### 9.8 Edit the Service
+
+- Edit `kubectl get service wordpress -o yaml > wordpress-service.yaml`
+- under `type: LoadBalancer` add:
 
 ```
-apiVersion: v1
-kind: Service
-metadata:
-  name: flask
-  labels:
-    app: session8
-    tier: flask
-spec:
-  type: ClusterIP
-  selector:
-    app: session8
-    tier: flask
-  ports:
-  - port: 5000
-
+  externalIPs:
+  - 192.168.49.2
 ```
 
----
-
-### 8.6 Apply the flask service
-
-- Run `kubectl apply -f flask-service.yaml`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.flask.service.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.png)1
 
 ---
 
-### 8.7 Backend
+### 9.9 Apply the LoadBalancer IP
 
-- Edit `redis-deployment.yaml`
+- `kubectl apply -f wordpress-service.yaml`
+- `minikube service wordpress --url`
 
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: redis
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: session8
-      tier: redis
-  template:
-    metadata:
-      labels:
-        app: session8
-        tier: redis
-    spec:
-      containers:
-      - name: redis
-        image: "redis:alpine"
-        ports:
-        - containerPort: 6379      
-```
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.apply.png)
 
 ---
 
-### 8.8 Backend Service
+### 9.10 Verify App
 
-- Edit `redis-service.yaml`:
+- e.g. `http://192.168.49.2:30776`:
 
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis
-  labels:
-    app: session8
-    tier: redis
-spec:
-  ports:
-  - port: 6379
-    targetPort: 6379
-  selector:
-    app: session8
-    tier: redis
-```
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.open.png)
 
 ---
 
-### 8.9 Launch Redis Backend
+### 9.11 Secrets
 
-- `kubectl apply -f redis-deployment.yaml,redis-service.yaml`
+- `kubectl get secrets`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.dashboard.services.png)
-
----
-
-### 8.10 Service Info
-
-- `kubectl get service flask`:
-- `kubectl get service redis`:
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.services.png)
-
----
-
-### 8.11 Port Forward
-
-- `kubectl port-forward svc/flask 8080:5000`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.flask.forwarded.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.png)
 
 ---
 
