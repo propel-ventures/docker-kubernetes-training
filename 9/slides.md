@@ -93,6 +93,7 @@ Resources: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#acces
 - `minikube service wordpress --url`
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.apply.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.ip.png)
 
 ---
 
