@@ -109,47 +109,57 @@ background-size: contain
 
 ---
 
-### 8.12 Flask Logs
+### 9.12 Secrets Json
 
-- Run `kubectl logs -f svc/flask`
+- `kubectl get secrets -o json > secrets.yaml`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.flask.logs.png)
-
----
-
-### 8.13 Accessing a Pod
-
-- Run `kubectl get pods`:
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.kubectl.get.pods.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.yaml.png)
 
 ---
 
-### 8.14 Accessing a Pod
+### 9.13 Decoding
 
-- Run `kubectl exec -it flask-76c47d8bbd-cttdm -- sh`
-- You should get a '#' prompt once you're shelled in
-- Run `apt-get update`
-- Run `apt-get install curl`
-- Run `curl 127.0.0.1:5000`
+- Run `echo "QFNlc3Npb245"|base64 -d`:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.flask.curl.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.decode.png)
 
 ---
 
-### 8.15 Scaling
+### 9.14 Encoding a new secret
 
-- Run `kubectl scale deployment flask --replicas=5`
+- Run `echo -n "@Session9a" |base64`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.flask.scale.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.encode.png)
 
 ---
 
-# No 'Homework' for Session 8
+### 9.15 Rolling over your secret(s)
 
-- I'm on leave next week
+- Edit your `secrets.yaml` and replace the old encoded secret with the new encoded secret
+- Run `kubectl apply -f secrets.yaml`
 
-# Session 9 will be September 6th
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.apply.png)
+
+---
+
+### 9.16 Verifying updates secrets
+
+- Open up your minikube dashboard
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.dashboard.png)
+
+---
+
+### 9.17 Verifying updates secrets
+
+- Check your secret values via your pods
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.mysql.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.wp.png)
+
+---
+
+# Session 10 will be September 13th
 
 - Keep safe
 
