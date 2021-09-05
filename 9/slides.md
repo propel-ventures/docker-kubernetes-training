@@ -72,8 +72,8 @@ background-size: contain
 
 ### 9.8 Edit the Service
 
-- Edit `kubectl get service wordpress -o yaml > wordpress-service.yaml`
-- under `type: LoadBalancer` add:
+- `kubectl get service wordpress -o yaml > wordpress-service.yaml`
+- under `type: LoadBalancer` add your IP:
 
 ```
   externalIPs:
