@@ -43,6 +43,9 @@ background-size: contain
 
 ![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.pvc.png)
 
+
+Resources: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+
 ---
 
 ### 9.5 Describe the Wordpress Service
