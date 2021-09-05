@@ -163,6 +163,15 @@ Resources: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#acces
 
 ---
 
+### 9.18 Wordpress App
+
+- Check your secret values via your pods
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.mysql.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.wp.png)
+
+---
+
 # Session 10 will be September 13th
 
 - Keep safe
