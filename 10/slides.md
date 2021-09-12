@@ -71,33 +71,35 @@ https://blog.nillsf.com/index.php/2019/07/28/ckad-series-part-4-multi-container-
 
 ---
 
-### 10.6 Sidecar Example
+### 10.6 Sidecar Example - Self-Signed SSL Cert
 
-- `openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out session10.crt -keyout session10.key`
+- Grab this file: https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/10/openssl.cnf
+- Run `openssl req -config ./openssl.cnf -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out session10.crt -keyout session10.key`
+- Run `kubectl create secret generic mycert --from-file session10.crt`
+- Run `kubectl create secret generic mykey --from-file session10.key`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.pending.png)
-
----
-
-### 9.7 Minikube IP
-
-- `minikube ip`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.minikube.ip.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.openssl.png)
 
 ---
 
-### 9.8 Edit the Service
+### 10.7 Sidecar Example - Nginx ConfigMap
 
-- `kubectl get service wordpress -o yaml > wordpress-service.yaml`
-- under `type: LoadBalancer` add your IP:
+- Grab this file: https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/10/nginx.conf
+- Run `kubectl create configmap nginx-config --from-file nginx.conf`
 
-```
-  externalIPs:
-  - 192.168.49.2
-```
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.nginx.png)
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.png)
+Resources:
+https://kubernetes.io/docs/concepts/configuration/configmap/
+
+---
+
+### 10.8 Sidecar Example - Deployment Yaml
+
+- Grab this file: https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/10/sidecar.yaml
+- Run `kubectl create configmap nginx-config --from-file nginx.conf`
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.nginx.png)
 
 ---
 
