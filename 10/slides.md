@@ -97,98 +97,21 @@ https://kubernetes.io/docs/concepts/configuration/configmap/
 ### 10.8 Sidecar Example - Deployment Yaml
 
 - Grab this file: https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/10/sidecar.yaml
-- Run `kubectl create configmap nginx-config --from-file nginx.conf`
+- `kubectl apply -f sidecar.yaml`
+- `minikube service  port-443-service --url`
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.nginx.png)
-
----
-
-### 9.9 Apply the LoadBalancer IP
-
-- `kubectl apply -f wordpress-service.yaml`
-- `minikube service wordpress --url`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.externalip.apply.png)
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.ip.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.url.png)
 
 ---
 
-### 9.10 Verify App
+### 10.9 Sidecar App in the browser
 
-- e.g. `http://192.168.49.2:30776`:
 
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.open.png)
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.sidecar.browser.png)
 
----
-
-### 9.11 Secrets
-
-- `kubectl get secrets`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.png)
 
 ---
 
-### 9.12 Secrets Json
-
-- `kubectl get secrets -o json > secrets.yaml`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.yaml.png)
-
----
-
-### 9.13 Decoding
-
-- Run `echo "QFNlc3Npb245"|base64 -d`:
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.decode.png)
-
----
-
-### 9.14 Encoding a new secret
-
-- Run `echo -n "@Session9a" |base64`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.encode.png)
-
----
-
-### 9.15 Rolling over your secret(s)
-
-- Edit your `secrets.yaml` and replace the old encoded secret with the new encoded secret
-- Run `kubectl apply -f secrets.yaml`
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.apply.png)
-
----
-
-### 9.16 Verifying updates secrets
-
-- Open up your minikube dashboard
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.dashboard.png)
-
----
-
-### 9.17 Verifying updates secrets
-
-- Check your secret values via your pods
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.mysql.png)
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.wp.png)
-
----
-
-### 9.18 Wordpress App
-
-- Check your secret values via your pods
-
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.mysql.png)
-![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.wordpress.secrets.wp.png)
-
----
-
-# Session 10 will be September 13th
+# Session 11 will be September 20th
 
 - Keep safe
-
