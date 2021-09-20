@@ -17,6 +17,12 @@ background-size: contain
 
 ---
 
+### 10.2 Probed
+
+![](https://raw.githubusercontent.com/propel-ventures/docker-kubernetes-training/main/img/k8s.probe.png)
+
+---
+
 # Graduation
 
 - Congratulations
