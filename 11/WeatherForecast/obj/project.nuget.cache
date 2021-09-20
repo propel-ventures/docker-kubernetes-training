@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "VYDulZX332RH+qh7NZ80zh+z5mmr2KQR6sYo5fIzbRIhG+hssLqqY2QOMNdI4yOjWoDw89CPneSC52mMkdJtig==",
+  "success": true,
+  "projectFilePath": "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/WeatherForecast.csproj",
+  "expectedPackageFiles": [
+    "/home/kevin/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/kevin/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/kevin/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/home/kevin/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/home/kevin/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/home/kevin/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

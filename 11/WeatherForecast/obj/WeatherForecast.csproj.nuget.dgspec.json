@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/WeatherForecast.csproj": {}
+  },
+  "projects": {
+    "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/WeatherForecast.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/WeatherForecast.csproj",
+        "projectName": "WeatherForecast",
+        "projectPath": "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/WeatherForecast.csproj",
+        "packagesPath": "/home/kevin/.nuget/packages/",
+        "outputPath": "/home/kevin/work/github/docker-kubernetes-training/1/docker-kubernetes-training/11/WeatherForecast/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/kevin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/myob/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
