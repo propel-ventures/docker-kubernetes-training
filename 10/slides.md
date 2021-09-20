@@ -25,7 +25,6 @@ background-size: contain
 - A Pod models an application-specific "logical host": it contains one or more application containers which are relatively tightly coupled.
 - Pods are ephemeral by nature, if a pod (or the node it executes on) fails, Kubernetes can automatically create a new replica of that pod to continue operations. 
 - Pods include one or more containers (such as Docker containers).
-- 
 
 Resources: 
 https://kubernetes.io/docs/concepts/workloads/pods/
@@ -40,7 +39,7 @@ https://www.vmware.com/topics/glossary/content/kubernetes-pods
 - Controllers manage rollout, replication, and health of the pods in a cluster.
 - e.g. if a node in the cluster fails, a controller detects that the pods on that node are unresponsive and creates replacement pod(s) on other nodes.
 - The three most common types of controllers are:
-  - **Deployments** for applications that are stateless and persistent, such as web servers (HPPT servers)
+  - **Deployments** for applications that are stateless and persistent, such as web servers (HTTP servers)
   - **Jobs** for batch-type jobs that are ephemeral, and will run a task to completion 
   - **StatefulSets** for applications that are both stateful and persistent such as databases 
     - *Note: with a StatefulSet each Pod gets its own PersistentVolumeClaim, but in a Deployment with a PVC all Pods use the same PersistentVolumeClaim*
@@ -63,7 +62,7 @@ https://www.vmware.com/topics/glossary/content/kubernetes-pods
 ### 10.5 Multi-Container Pod Design Patterns
 
 - **Sidecar**: A sidecar container adds functionality to your application that could be included in the main container. By hosting this logic in a sidecar, you can keep that functionality out of your main application and evolve that independently from the actual application
-- **Ambassador**: An ambassador container proxies a local connection to certain outbound connection. The ambassadors brokers the connection the outside world. This can for instance be used to shard a service or to implement client side load balancing.
+- **Ambassador**: An ambassador container proxies local connections to certain outbound connections. The ambassador brokers the connection to the outside world. This can for instance be used to shard a service or to implement client side load balancing.
 - **Adapter**: An adapter container takes data from the existing application and presents that in a standardized way. This is for instance very useful for monitoring data.
 
 Resources: 
