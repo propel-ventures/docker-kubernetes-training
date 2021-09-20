@@ -10,7 +10,7 @@ countryName            = AU
 stateOrProvinceName    = Victoria
 organizationName       = Propel
 organizationalUnitName = Kubernetes
-commonName             = Session9
+commonName             = Session10
 emailAddress           = kevin.osborne@propelventures.ai
 
 [req_ext]

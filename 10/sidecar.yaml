@@ -24,18 +24,18 @@ spec:
   volumes:
     - name: cert
       secret:
-        secretName: mycert
+        secretName: s10cert
     - name: key
       secret:
-        secretName: mykey
+        secretName: s10key
     - name: config
       configMap:
-        name: nginx-config
+        name: nginx-ssl-terminator
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: port-443-service
+  name: sidecar-service
 spec:
   selector:
     app: web-server
