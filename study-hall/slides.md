@@ -16,9 +16,15 @@ https://www.cncf.io/certification/ckad/
 
 ---
 
-### ???
+### Exam Curriculum 
 
-???
+| Weight  | Domain      |
+| :------ | ----------: |
+| 20%     | Application Design and Build |
+| 20%     | Application Deployment	|
+| 14% | Application Observability and Maintenance |
+| 25% | Application Environment, Configuration and Security |
+| 20% | Services and Networking |
 
 ---
 
