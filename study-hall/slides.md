@@ -6,8 +6,7 @@ background-size: contain
 ---
 
 # CKAD Study Hall
-## Session 11
-## September 20th 2021
+## Open-ended study plan + learnings
 
 ---
 
