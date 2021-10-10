@@ -32,3 +32,6 @@ Week 10:
 
 Week 11:
 [Slides](https://propel-ventures.github.io/docker-kubernetes-training/11/#1)
+
+Study Hall:
+[Slides](https://propel-ventures.github.io/docker-kubernetes-training/study-hall/#1)
